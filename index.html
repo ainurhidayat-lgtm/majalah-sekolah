@@ -5,13 +5,305 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Majalah Sekolah</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f9; }
-        h1 { color: #333; }
-        p { color: #666; font-size: 18px; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+
+        .header-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .header-subtitle {
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .btn-main {
+            background-color: #1a1845;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: #312e7a;
+        }
+
+        /* --- BLOK 1: ARTIKEL (ABU-ABU KEBIRUAN) --- */
+        .section-articles {
+            background-color: #cbd5e1;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .articles-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .articles-grid { grid-template-columns: 1fr; }
+        }
+
+        .article-card {
+            background-color: #38bdf8;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            gap: 15px;
+            text-align: left;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .article-img {
+            width: 110px;
+            height: 110px;
+            background-color: #ddd;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            flex: 1;
+            color: #000;
+        }
+
+        .tag-category {
+            font-size: 11px;
+            font-weight: bold;
+            color: #1e3a8a;
+            text-transform: uppercase;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 3px 0;
+        }
+
+        .article-desc {
+            font-size: 11px;
+            line-height: 1.4;
+            color: #1f2937;
+        }
+
+        /* --- BLOK 2: KATALOG MAJALAH (HIJAU) --- */
+        .section-catalog {
+            background-color: #4ade80;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .carousel-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .arrow-btn {
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .magazine-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .magazine-card {
+            width: 150px;
+            text-align: center;
+        }
+
+        .magazine-cover {
+            width: 100%;
+            height: 200px;
+            background-color: #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .magazine-title {
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        .magazine-date {
+            font-size: 11px;
+            color: #444;
+        }
+
+        /* --- BLOK 3: UNGGAH KARYA (KUNING) --- */
+        .section-upload {
+            background-color: #facc15;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .upload-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .upload-container { flex-direction: column; align-items: center; }
+        }
+
+        .upload-box {
+            background-color: #bfdbfe;
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .upload-box-img {
+            width: 80px;
+            height: 80px;
+            background-color: #94a3b8;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .upload-box text {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .btn-upload {
+            background-color: #1a1845;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-upload:hover {
+            background-color: #312e7a;
+        }
     </style>
 </head>
 <body>
-    <h1>Selamat Datang di Majalah Sekolah</h1>
-    <p>Platform publikasi karya kreatif dan artikel seru dari para pelajar.</p>
-</body>
-</html>
+
+    <!-- SECTION 1: ARTIKEL -->
+    <section class="section-articles">
+        <h1 class="header-title">Majalah Sekolah</h1>
+        <p class="header-subtitle">SEMUA TULISAN PELAJAR DAN MAJALAH SEKOLAH KUMPUL DI SINI</p>
+
+        <div class="articles-grid">
+            <!-- Kartu Artikel 1 -->
+            <div class="article-card">
+                <div class="article-img"></div>
+                <div class="article-content">
+                    <span class="tag-category">Berita</span>
+                    <h2 class="article-title">Judul Tulisan</h2>
+                    <p class="article-desc">Pangandaran - Sabtu (12/4) Siswa SMAN 1 Sidamulih menggelar kegiatan Festival Literasi...</p>
+                </div>
+            </div>
+            <!-- Kartu Artikel 2 -->
+            <div class="article-card">
+                <div class="article-img"></div>
+                <div class="article-content">
+                    <span class="tag-category">Opini</span>
+                    <h2 class="article-title">Judul Tulisan</h2>
+                    <p class="article-desc">Pangandaran - Sabtu (12/4) Siswa SMAN 1 Sidamulih menggelar kegiatan Festival Literasi...</p>
+                </div>
+            </div>
+            <!-- Kartu Artikel 3 -->
+            <div class="article-card">
+                <div class="article-img"></div>
+                <div class="article-content">
+                    <span class="tag-category">Fiksi</span>
+                    <h2 class="article-title">Judul Tulisan</h2>
+                    <p class="article-desc">Pangandaran - Sabtu (12/4) Siswa SMAN 1 Sidamulih menggelar kegiatan Festival Literasi...</p>
+                </div>
+            </div>
+            <!-- Kartu Artikel 4 -->
+            <div class="article-card">
+                <div class="article-img"></div>
+                <div class="article-content">
+                    <span class="tag-category">Opini</span>
+                    <h2 class="article-title">Judul Tulisan</h2>
+                    <p class="article-desc">Pangandaran - Sabtu (12/4) Siswa SMAN 1 Sidamulih menggelar kegiatan Festival Literasi...</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-main">Cari Tulisan Lainnya</button>
+    </section>
+
+    <!-- SECTION 2: KATALOG MAJALAH -->
+    <section class="section-catalog">
+        <h1 class="header-title">Majalah Sekolah</h1>
+        <p class="header-subtitle">SEMUA TULISAN PELAJAR DAN MAJALAH SEKOLAH KUMPUL DI SINI</p>
+
+        <div class="carousel-container">
+            <button class="arrow-btn">&#10094;</button>
+            <div class="magazine-grid">
+                <div class="magazine-card">
+                    <div class="magazine-cover" style="background-color: #ef4444; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; padding:10px; font-size:14px; text-align:center;">FRONT AND CENTER</div>
+                    <p class="magazine-title">LENSA 29</p>
+                    <span class="magazine-date">September 2026</span>
+                </div>
+                <div class="magazine-card">
+                    <div class="magazine-cover" style="background-color: #3b82f6; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; padding:10px; font-size:14px; text-align:center;">Ragam</div>
+                    <p class="magazine-title">RAGAM</p>
+                    <span class="magazine-date">Oktober 2026</span>
+                </div>
+                <div class="magazine-card">
+                    <div class="magazine-cover" style="background-color: #64748b; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; padding:10px; font-size:14px; text-align:center;">AIRWAYS</div>
+                    <p class="magazine-title">SUARA MAUNG</p>
+                    <span class="magazine-date">Oktober 2026</span>
+                </div>
+                <div class="magazine-card">
+                    <div class="magazine-cover" style="background-color: #f87171; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; padding:10px; font-size:12px; text-align:center;">LE PETIT INVENTEUR</div>
