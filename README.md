@@ -38,3 +38,4 @@ Ini baru frontend/prototipe. Artikel contoh bukan publikasi nyata. Formulir belu
 ## Tahap backend berikutnya
 
 Sambungkan Supabase dengan tabel `schools`, `school_members`, `magazines`, `magazine_issues`, `articles`, dan `article_images`. Terapkan autentikasi, Row Level Security (RLS), kebijakan akses berdasarkan sekolah, penyimpanan foto, serta status artikel `draft`, `pending`, `published`, dan `rejected`. Jangan menyimpan service-role key di kode frontend. Semua keputusan publikasi harus diperiksa oleh backend, bukan hanya disembunyikan di UI.
+
