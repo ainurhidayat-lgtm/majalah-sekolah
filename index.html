@@ -200,19 +200,20 @@
         </div>
     </section>
 
-    <!-- KODE PINTAR JAVASCRIPT UNTUK AKSI OTOMATIS -->
+    <!-- KODE PINTAR JAVASCRIPT YANG SUDAH DIPERBAIKI -->
     <script>
         // MASUKKAN LINK CSV GOOGLE SHEETS ANDA DI BAWAH INI
-        const URL_SHEETS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTldwmswoIBAsg99buTq2-9FnVdF6PPwPITegmNTjOi3k9Max4DZVq57vecMKlO5dF-jcOC1xHXnt4c/pub?output=csv";
+        const URL_SHEETS = "PASTE_LINK_CSV_GOOGLE_SHEETS_DISINI";
 
         function konversiLinkDrive(url) {
             if (!url) return "https://placeholder.com";
-            // Mengubah link upload Google Drive menjadi link gambar langsung agar bisa tampil di web
-            const idCocok = url.match(/id=([^&]+)/) || url.match(/\/d\/([^/]+)/);
+            // Membersihkan tanda petik ganda jika ada
+            let bersihUrl = url.replace(/"/g, "").trim();
+            const idCocok = bersihUrl.match(/id=([^&]+)/) || bersihUrl.match(/\/d\/([^/]+)/);
             if (idCocok) {
                 return `https://googleusercontent.com{idCocok[1]}`;
             }
-            return url;
+            return bersihUrl;
         }
 
         async function muatArtikelOtomatis() {
@@ -220,25 +221,29 @@
                 const respon = await fetch(URL_SHEETS);
                 const dataTeks = await respon.text();
                 
-                // Memisahkan data per baris kalimat
-                const barisData = dataTeks.split("\n").slice(1); 
+                // Memisah baris data dokumen
+                const barisData = dataTeks.split(\(/\r\)?\n/).slice(1); 
                 const kontainer = document.getElementById("artikel-container");
-                kontainer.innerHTML = ""; // Bersihkan teks memuat
+                kontainer.innerHTML = ""; 
+
+                let adaData = false;
 
                 barisData.forEach(baris => {
                     if (baris.trim() === "") return;
                     
-                    // Memisahkan kolom data (menggunakan aturan CSV dasar)
-                    const kolom = baris.split(/,(?=(?:(?:[^"]*"){2})*[^"]*\$)/);
+                    // Deteksi otomatis jika csv menggunakan koma (,) atau titik koma (;)
+                    const pemisah = baris.includes(";") ? ";" : ",";
+                    const kolom = baris.split(pemisah);
                     
-                    // SESUAIKAN NOMOR URUTAN KOLOM DI GOOGLE SHEETS ANDA (Dimulai dari angka 0)
-                    // Contoh asumsi urutan kolom: 0=Timestamp, 1=Email, 2=Kategori, 3=Judul, 4=Isi Cerita, 5=Link Foto
-                    const kategori = kolom[2]?.replace(/"/g, "") || "Berita";
-                    const judul = kolom[3]?.replace(/"/g, "") || "Judul Tulisan";
-                    const isi = kolom[4]?.replace(/"/g, "") || "Memuat isi tulisan...";
-                    const linkFoto = konversiLinkDrive(kolom[5]?.replace(/"/g, "").trim());
+                    if (kolom.length < 3) return; // Lewati jika baris rusak
+                    adaData = true;
 
-                    // Membuat susunan HTML Kartu Artikel secara dinamis
+                    // Konfigurasi pengambilan data (Menghapus tanda petik otomatis)
+                    const kategori = (kolom[2] || "Berita").replace(/"/g, "").trim();
+                    const judul = (kolom[3] || "Judul Tulisan").replace(/"/g, "").trim();
+                    const isi = (kolom[4] || "Memuat isi tulisan...").replace(/"/g, "").trim();
+                    const linkFoto = konversiLinkDrive(kolom[5]);
+
                     const kodeKartuHtml = `
                         <div class="article-card">
                             <img src="${linkFoto}" class="article-img" alt="Foto Artikel" onerror="this.src='https://placeholder.com'">
@@ -251,14 +256,15 @@
                     `;
                     kontainer.innerHTML += kodeKartuHtml;
                 });
+
+                if (!adaData) {
+                    kontainer.innerHTML = "<p style='grid-column:1/-1;'>Belum ada data tulisan yang masuk.</p>";
+                }
             } catch (error) {
                 console.error("Gagal memuat data:", error);
-                document.getElementById("artikel-container").innerHTML = "<p>Gagal memuat artikel terbaru otomatis.</p>";
+                document.getElementById("artikel-container").innerHTML = "<p style='grid-column:1/-1;'>Gagal memuat artikel secara otomatis.</p>";
             }
         }
 
-        // Jalankan fungsi otomatis saat halaman web dibuka
         window.onload = muatArtikelOtomatis;
     </script>
-</body>
-</html>
