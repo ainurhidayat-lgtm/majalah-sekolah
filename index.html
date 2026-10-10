@@ -39,10 +39,6 @@
             transition: 0.3s;
         }
 
-        .btn-main:hover {
-            background-color: #312e7a;
-        }
-
         /* --- BLOK 1: ARTIKEL (ABU-ABU KEBIRUAN) --- */
         .section-articles {
             background-color: #cbd5e1;
@@ -123,15 +119,6 @@
             gap: 15px;
         }
 
-        .arrow-btn {
-            background: none;
-            border: none;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-        }
-
         .magazine-grid {
             display: flex;
             gap: 20px;
@@ -139,31 +126,12 @@
             flex-wrap: wrap;
         }
 
-        .magazine-card {
-            width: 150px;
-            text-align: center;
-        }
+        .magazine-card { width: 150px; text-align: center; }
 
         .magazine-cover {
-            width: 100%;
-            height: 200px;
-            background-color: #e2e8f0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            margin-bottom: 10px;
-            object-fit: cover;
-        }
-
-        .magazine-title {
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: #000;
-        }
-
-        .magazine-date {
-            font-size: 11px;
-            color: #444;
+            width: 100%; height: 200px; background-color: #e2e8f0;
+            border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            margin-bottom: 10px; object-fit: cover;
         }
 
         /* --- BLOK 3: UNGGAH KARYA (KUNING) --- */
@@ -175,201 +143,122 @@
         }
 
         .upload-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-        }
-
-        @media (max-width: 600px) {
-            .upload-container { flex-direction: column; align-items: center; }
+            max-width: 800px; margin: 0 auto;
+            display: flex; gap: 40px; justify-content: center;
         }
 
         .upload-box {
-            background-color: #bfdbfe;
-            border-radius: 15px;
-            padding: 25px;
-            flex: 1;
-            max-width: 350px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+            background-color: #bfdbfe; border-radius: 15px; padding: 25px;
+            flex: 1; max-width: 350px; text-align: center;
+            display: flex; flex-direction: column; justify-content: space-between; align-items: center;
         }
 
-        .upload-box-img {
-            width: 80px;
-            height: 80px;
-            background-color: #94a3b8;
-            border-radius: 8px;
-            margin: 0 auto 15px auto;
-        }
-
-        .upload-info {
-            margin-bottom: 15px;
-        }
-
-        .upload-info h3 {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #000;
-        }
-
-        .upload-info p {
-            font-size: 12px;
-            color: #444;
-            margin-top: 5px;
-        }
-
-        .upload-note {
-            font-size: 11px;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .btn-upload {
-            background-color: #1a1845;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 20px;
-            font-size: 13px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            width: 100%;
-        }
-
-        .btn-upload:hover {
-            background-color: #312e7a;
-        }
+        .upload-box-img { width: 80px; height: 80px; background-color: #94a3b8; border-radius: 8px; margin-bottom: 15px;}
+        .btn-upload { background-color: #1a1845; color: white; border: none; padding: 10px 25px; border-radius: 20px; font-weight: bold; cursor: pointer; width: 100%; text-decoration: none;}
     </style>
 </head>
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTldwmswoIBAsg99buTq2-9FnVdF6PPwPITegmNTjOi3k9Max4DZVq57vecMKlO5dF-jcOC1xHXnt4c/pubhtml?widget=true&amp;headers=false"></iframe>
 <body>
 
-    <!-- SECTION 1: ARTIKEL (ABU-ABU KEBIRUAN) -->
+    <!-- SECTION 1: ARTIKEL OTOMATIS -->
     <section class="section-articles">
         <h1 class="header-title">Majalah Sekolah</h1>
         <p class="header-subtitle">SEMUA TULISAN PELAJAR DAN MAJALAH SEKOLAH KUMPUL DI SINI</p>
 
-        <div class="articles-grid">
-            <div class="article-card">
-                <div class="article-img"></div>
-                <div class="article-content">
-                    <span class="tag-category">Berita</span>
-                    <h2 class="article-title">Judul Tulisan</h2>
-                    <p class="article-desc">Pangandaran - Sabtu (12/4) Siswa SMAN 1 Sidamulih menggelar kegiatan Festival Literasi...</p>
-                </div>
-            </div>
-            <div class="article-card">
-                <div class="article-img"></div>
-                <div class="article-content">
-                    <span class="tag-category">Opini</span>
-                    <h2 class="article-title">Judul Tulisan</h2>
-                    <p class="article-desc">Pangandaran - Sabtu (12/4) Siswa SMAN 1 Sidamulih menggelar kegiatan Festival Literasi...</p>
-                </div>
-            </div>
-            <div class="article-card">
-                <div class="article-img"></div>
-                <div class="article-content">
-                    <span class="tag-category">Fiksi</span>
-                    <h2 class="article-title">Judul Tulisan</h2>
-                    <p class="article-desc">Pangandaran - Sabtu (12/4) Siswa SMAN 1 Sidamulih menggelar kegiatan Festival Literasi...</p>
-                </div>
-            </div>
-            <div class="article-card">
-                <div class="article-img"></div>
-                <div class="article-content">
-                    <span class="tag-category">Opini</span>
-                    <h2 class="article-title">Judul Tulisan</h2>
-                    <p class="article-desc">Pangandaran - Sabtu (12/4) Siswa SMAN 1 Sidamulih menggelar kegiatan Festival Literasi...</p>
-                </div>
-            </div>
+        <!-- Tempat kartu artikel dari Google Sheets akan muncul otomatis -->
+        <div class="articles-grid" id="artikel-container">
+            <p style="grid-column: 1/-1; color: #555;">Memuat tulisan terbaru...</p>
         </div>
 
         <button class="btn-main">Cari Tulisan Lainnya</button>
     </section>
 
-    <!-- SECTION 2: KATALOG MAJALAH (HIJAU) -->
+    <!-- SECTION 2: KATALOG MAJALAH -->
     <section class="section-catalog">
         <h1 class="header-title">Majalah Sekolah</h1>
         <p class="header-subtitle">SEMUA TULISAN PELAJAR DAN MAJALAH SEKOLAH KUMPUL DI SINI</p>
-
         <div class="carousel-container">
-            <button class="arrow-btn">&#10094;</button>
             <div class="magazine-grid">
                 <div class="magazine-card">
-                    <div class="magazine-cover" style="background-color: #ef4444; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; padding:10px; font-size:14px; text-align:center;">FRONT AND CENTER</div>
-                    <p class="magazine-title">LENSA 29</p>
-                    <span class="magazine-date">September 2026</span>
+                    <div class="magazine-cover" style="background-color: #ef4444; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold;">LENSA 29</div>
                 </div>
                 <div class="magazine-card">
-                    <div class="magazine-cover" style="background-color: #3b82f6; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; padding:10px; font-size:14px; text-align:center;">Ragam</div>
-                    <p class="magazine-title">RAGAM</p>
-                    <span class="magazine-date">Oktober 2026</span>
-                </div>
-                <div class="magazine-card">
-                    <div class="magazine-cover" style="background-color: #64748b; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; padding:10px; font-size:14px; text-align:center;">AIRWAYS</div>
-                    <p class="magazine-title">SUARA MAUNG</p>
-                    <span class="magazine-date">Oktober 2026</span>
-                </div>
-                <div class="magazine-card">
-                    <div class="magazine-cover" style="background-color: #f87171; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; padding:10px; font-size:12px; text-align:center;">LE PETIT INVENTEUR</div>
-                    <p class="magazine-title">SMANSA</p>
-                    <span class="magazine-date">Oktober 2026</span>
+                    <div class="magazine-cover" style="background-color: #3b82f6; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold;">RAGAM</div>
                 </div>
             </div>
-            <button class="arrow-btn">&#10095;</button>
         </div>
-
-        <button class="btn-main">Cari Majalah Lainnya</button>
     </section>
 
-    <!-- SECTION 3: UNGGAH KARYA (KUNING) -->
+    <!-- SECTION 3: UNGGAH -->
     <section class="section-upload">
         <h1 class="header-title">Unggah Karyamu</h1>
-        <p class="header-subtitle">HANYA PERLU BEBERAPA LANGKAH. YUK MULAI!</p>
-
         <div class="upload-container">
             <div class="upload-box">
-                <div>
-                    <div class="upload-box-img"></div>
-                    <div class="upload-info">
-                        <h3>Pilih Kategori</h3>
-                        <h3>Tulis Judul</h3>
-                        <h3>Tulis Judul</h3>
-                        <p>Tulis Tulisanmu di sini...</p>
-                    </div>
-                </div>
-                <div>
-                    <p class="upload-note">Unggah Foto Unggulan Maksimal 2 MB</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2j216tNllTBwD65CnbP0lQPoieE3r7040c5hf1E-Wv2LCrA/viewform" target="_blank" class="btn-upload" style="text-decoration: none; display: inline-block;">Unggah Tulisanmu</a>
-
-                </div>
-            </div>
-            
-            <div class="upload-box">
-                <div>
-                    <div class="upload-box-img"></div>
-                    <div class="upload-info">
-                        <h3>Tulis Sekolahmu</h3>
-                        <h3>Tulis Judul Majalah</h3>
-                        <p>Tulis Edisi dan Bulan Terbit</p>
-                    </div>
-                </div>
-                <div>
-                    <p class="upload-note">Unggah Majalahmu Maksimal 10 MB</p>
-                    <button class="btn-upload">Unggah Tulisanmu</button>
-                </div>
+                <div class="upload-box-img"></div>
+                <h3>Kirim Tulisan & Foto</h3>
+                <a href="PASTE_LINK_GOOGLE_FORM_ANDA" target="_blank" class="btn-upload">Unggah Tulisanmu</a>
             </div>
         </div>
     </section>
 
+    <!-- KODE PINTAR JAVASCRIPT UNTUK AKSI OTOMATIS -->
+    <script>
+        // MASUKKAN LINK CSV GOOGLE SHEETS ANDA DI BAWAH INI
+        const URL_SHEETS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTldwmswoIBAsg99buTq2-9FnVdF6PPwPITegmNTjOi3k9Max4DZVq57vecMKlO5dF-jcOC1xHXnt4c/pub?output=csv";
+
+        function konversiLinkDrive(url) {
+            if (!url) return "https://placeholder.com";
+            // Mengubah link upload Google Drive menjadi link gambar langsung agar bisa tampil di web
+            const idCocok = url.match(/id=([^&]+)/) || url.match(/\/d\/([^/]+)/);
+            if (idCocok) {
+                return `https://googleusercontent.com{idCocok[1]}`;
+            }
+            return url;
+        }
+
+        async function muatArtikelOtomatis() {
+            try {
+                const respon = await fetch(URL_SHEETS);
+                const dataTeks = await respon.text();
+                
+                // Memisahkan data per baris kalimat
+                const barisData = dataTeks.split("\n").slice(1); 
+                const kontainer = document.getElementById("artikel-container");
+                kontainer.innerHTML = ""; // Bersihkan teks memuat
+
+                barisData.forEach(baris => {
+                    if (baris.trim() === "") return;
+                    
+                    // Memisahkan kolom data (menggunakan aturan CSV dasar)
+                    const kolom = baris.split(/,(?=(?:(?:[^"]*"){2})*[^"]*\$)/);
+                    
+                    // SESUAIKAN NOMOR URUTAN KOLOM DI GOOGLE SHEETS ANDA (Dimulai dari angka 0)
+                    // Contoh asumsi urutan kolom: 0=Timestamp, 1=Email, 2=Kategori, 3=Judul, 4=Isi Cerita, 5=Link Foto
+                    const kategori = kolom[2]?.replace(/"/g, "") || "Berita";
+                    const judul = kolom[3]?.replace(/"/g, "") || "Judul Tulisan";
+                    const isi = kolom[4]?.replace(/"/g, "") || "Memuat isi tulisan...";
+                    const linkFoto = konversiLinkDrive(kolom[5]?.replace(/"/g, "").trim());
+
+                    // Membuat susunan HTML Kartu Artikel secara dinamis
+                    const kodeKartuHtml = `
+                        <div class="article-card">
+                            <img src="${linkFoto}" class="article-img" alt="Foto Artikel" onerror="this.src='https://placeholder.com'">
+                            <div class="article-content">
+                                <span class="tag-category">${kategori}</span>
+                                <h2 class="article-title">${judul}</h2>
+                                <p class="article-desc">${isi.substring(0, 100)}...</p>
+                            </div>
+                        </div>
+                    `;
+                    kontainer.innerHTML += kodeKartuHtml;
+                });
+            } catch (error) {
+                console.error("Gagal memuat data:", error);
+                document.getElementById("artikel-container").innerHTML = "<p>Gagal memuat artikel terbaru otomatis.</p>";
+            }
+        }
+
+        // Jalankan fungsi otomatis saat halaman web dibuka
+        window.onload = muatArtikelOtomatis;
+    </script>
 </body>
 </html>
